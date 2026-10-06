@@ -1,0 +1,64 @@
+{
+  "task": "data-learn",
+  "condition": "skills-auto",
+  "role": "learn",
+  "error": null,
+  "timestamp": "2026-10-06T05:04:49.104371+00:00",
+  "skills_sha256": "97fa69872ff410e450642547f682cf1047fc2225a14329511028000136a76ed0",
+  "seconds": 87.3,
+  "tokens": {
+    "input": 63617,
+    "output": 2974,
+    "total": 66591
+  },
+  "tool_calls": 12,
+  "subagent_calls": 0,
+  "skills_read": 2,
+  "skills_modified": false,
+  "final_message": "[{'type': 'text', 'text': 'Created `workspace/answer.json`. I deduplicated by `order_id`, normalized region names and dates, excluded missing amounts from revenue, and recorded money in USD cents per the reporting convention. The North Q1 total includes orders whose timestamps fall within the stated UTC window.', 'annotations': [], 'id': 'msg_054a55a0ce5d481d006ac481c743a087d08af310ec978127fd', 'phase': 'final_answer'}]",
+  "score": 0.75,
+  "passed": 6,
+  "total": 8,
+  "checks": [
+    {
+      "name": "north_q1_revenue",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "north_q1_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "top_region",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "missing_amount_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "duplicate_rows_removed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_money_in_cents",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_meta_block",
+      "passed": false,
+      "detail": "RULE: answer.json has an object `meta` = {\"source\": <input file name>, \"rows_in\": <number of data rows in the input file, duplicates included>, \"rows_used\": <number of distinct orders with a known amount>}."
+    },
+    {
+      "name": "rule_clean_csv",
+      "passed": false,
+      "detail": "RULE: write workspace/clean.csv with the header order_id,timestamp_utc,region,amount_cents; one row per distinct order with a known amount; timestamp_utc as YYYY-MM-DDTHH:MM:SSZ (UTC); region in canonical spelling (North, South, East, West); amount in integer cents."
+    }
+  ]
+}

@@ -4,10 +4,12 @@ Pseudo-code: guides/pseudocode/04_curator.md
 Kiểm tra:    pytest tests/test_04_curator.py
 Chạy thật:   python -m lab.curator
 """
+import json
 import re
 from pathlib import Path
 
-from .tasks import eval_markers   # có sẵn: định danh của tác vụ đánh giá, tính lúc chạy
+from .model import make_model
+from .tasks import ROOT, eval_markers   # có sẵn: định danh của tác vụ đánh giá, tính lúc chạy
 
 # ---- CÓ SẴN, KHÔNG SỬA: kiểm tra và tách khối skill (phần dễ sai và liên quan bảo mật) ----------------
 SAFE_NAME = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -68,7 +70,113 @@ def curate_skills(results_dir="results", source_condition="baseline", out_dir=No
     model mặc định: make_model() (lab.model).
     Trả về: danh sách đường dẫn SKILL.md đã ghi.
     """
-    raise NotImplementedError("TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)")
+    out_path = Path(out_dir) if out_dir is not None else (ROOT / "skills" / "auto")
+    runs_dir = Path(results_dir) / source_condition
+
+    runs_data = []
+    has_failures = False
+
+    if runs_dir.exists():
+        for run_file in sorted(runs_dir.glob("*/run.json")):
+            try:
+                data = json.loads(run_file.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+
+            if data.get("role") != "learn":
+                continue
+
+            failed_checks = [
+                {"name": c.get("name", ""), "detail": c.get("detail", "")}
+                for c in data.get("checks", [])
+                if not c.get("passed", False)
+            ]
+
+            if failed_checks:
+                has_failures = True
+
+            trace_file = run_file.parent / "trace.md"
+            trace_excerpt = ""
+            if trace_file.exists():
+                try:
+                    trace_full = trace_file.read_text(encoding="utf-8")
+                    trace_excerpt = trace_full[-6000:]
+                except Exception:
+                    trace_excerpt = ""
+
+            runs_data.append({
+                "task": data.get("task", ""),
+                "failed_checks": failed_checks,
+                "trace": trace_excerpt,
+            })
+
+    if not has_failures:
+        print("Warning: no failed checks found in learning tasks, skipping skill generation.")
+        return []
+
+    runs_summary_parts = []
+    for r in runs_data:
+        task_name = r["task"]
+        failed_lines = [f"- Check `{fc['name']}`: {fc['detail']}" for fc in r["failed_checks"]]
+        failed_text = "\n".join(failed_lines) if failed_lines else "None"
+        runs_summary_parts.append(
+            f"### Task: {task_name}\n"
+            f"Failed checks and evaluation feedback:\n{failed_text}\n\n"
+            f"Execution trace excerpt:\n```\n{r['trace']}\n```"
+        )
+
+    runs_content = "\n\n".join(runs_summary_parts)
+
+    prompt = (
+        f"You are a meta-learning skill curator for an engineering and data analysis agent.\n"
+        f"Below are the failed checks (check names and evaluation bot feedback) and execution traces from learning tasks.\n"
+        f"Identify common procedural conventions, house rules, and quality guidelines to write at most {max_skills} concise skills.\n\n"
+        f"Rules for skills:\n"
+        f"1. Skills must be general procedural checklists or convention guides (e.g. Acme conventions for data cleaning, code style, log triage).\n"
+        f"2. Never mention specific task IDs, task names, or hardcoded dataset answers.\n"
+        f"3. Each skill MUST start with YAML frontmatter containing 'name' (lowercase letters, digits, hyphens only, max 64 chars) and 'description' (a clear 'Use when ...' trigger sentence, max 1024 chars).\n"
+        f"4. The body must be concise imperative checklist steps (under 40 lines).\n"
+        f"5. Output format EXACTLY as:\n"
+        f"=== SKILL: <name> ===\n"
+        f"---\n"
+        f"name: <name>\n"
+        f"description: Use when <trigger condition>\n"
+        f"---\n"
+        f"# <Title>\n\n"
+        f"1. <Step 1>\n"
+        f"2. <Step 2>\n"
+        f"=== END ===\n\n"
+        f"Input learning runs:\n{runs_content}\n"
+    )
+
+    llm = model or make_model()
+    resp = llm.invoke(prompt)
+    reply = resp.content
+    if isinstance(reply, list):
+        reply = "\n".join(
+            item.get("text", "") if isinstance(item, dict) else str(item)
+            for item in reply
+        )
+
+    parsed_blocks = parse_skill_blocks(reply)
+    written_paths = []
+
+    for name, text in parsed_blocks:
+        if len(written_paths) >= max_skills:
+            break
+
+        problems = validate_skill(text, expected_name=name)
+        if problems:
+            print(f"Skipping skill '{name}' due to validation issues: {problems}")
+            continue
+
+        skill_dir = out_path / name
+        skill_dir.mkdir(parents=True, exist_ok=True)
+        skill_file = skill_dir / "SKILL.md"
+        skill_file.write_text(text.strip() + "\n", encoding="utf-8")
+        written_paths.append(skill_file)
+
+    return written_paths
 
 
 if __name__ == "__main__":
