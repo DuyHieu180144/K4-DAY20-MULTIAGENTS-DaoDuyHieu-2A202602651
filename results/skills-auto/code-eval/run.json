@@ -1,0 +1,79 @@
+{
+  "task": "code-eval",
+  "condition": "skills-auto",
+  "role": "eval",
+  "error": null,
+  "timestamp": "2026-10-06T05:24:02.131219+00:00",
+  "skills_sha256": "97fa69872ff410e450642547f682cf1047fc2225a14329511028000136a76ed0",
+  "seconds": 236.4,
+  "tokens": {
+    "input": 104596,
+    "output": 4751,
+    "total": 109347
+  },
+  "tool_calls": 23,
+  "subagent_calls": 0,
+  "skills_read": 1,
+  "skills_modified": false,
+  "final_message": "[{'id': 'rs_01cd2f6736bde701006ac486d712cc87d0b6a16d3b21c03aba', 'summary': [], 'type': 'reasoning', 'content': [], 'encrypted_content': 'gAAAAABqxIbe9PShRCfdidV2LJjndMRa5QojebTP3pjdklxuLrDWMUQPe_NDTCIsg-sA7bfMMcwzuDATqvTgQFnTDuyC5b8Zve1Opv_IBpg4RYw0DY7p2XD_uQUK7ZnVlzfslGD_NLexlXU21AZg_PtR7o2x1wQq1DvwLA-JtUVCbH6gmbDXCpwHVq-tZS1EjY8lcfyCBVmWDyOM9HEShTzvZrOS617kWKheDCqRmV-dC7_MbmvCB-gi_qFpCKb7UydsdrDMipKU3PeGwwjGir8NtQgIfzJdxMET2gnuJ4zAi2PpiiCBC6kOADRnG8l3x_udNv1IYQj9evqtLtdi7Wavl9CwQcuvGNkplzLzPE0v6Kn3bqPQb-O1CwbeILyl3b86Yxoju2T9yklK_l-TyjZ7nmhkKLP-XjtFKYh1_TslsUcqNp0DCITeLnhrIneefNHMzlvJLboh1DB_bDGrpOc3e9nGJrnl_H8xqiw7ExrdoOVRtMnlhrmhjZsctTZcwURCCVpNu8Vun0Cu1cyytIiMnE6tfoYQ8fdoYDkzlsk7wOLd7MpO24ABIbO_YKnkr4VohwlEKvjL44700BA8YniyI78I7yxuDQVXZAhXMC3DbfTWDxpPefPCstRclznrj_lIuD-GxUAPDHze6XnVhk_fZs8GT7wr04rk9IyrItAgz1TSFNfR8TDQeTZEFTrWlXdZohGNzDUF8nXUDeQTvOQU2SYhJPTraCa4mjJATTcnLzMxh3p_fji689uF55ouwrE0Q3cWUuJt6DD1VUhhF7TEDBL2sJwSe6BwZt53QcsrpxGsTIz1Q9t-Kk8WuSv0idODoURcVgqpaWfMxLHifNJZCfb30OGiz264ZWwy3Zku2nTUVNYFpyAxvmH1Dt6LtUKmajAvLaKSYd3o9umfX3SZemIWRNI6NDkI56T66hZNIc7upIFDEEpSj43uYAMLpKVBDy1FK5oQZh5tjGKZHpCbz4Lxvsl-jyZylclb--UArUwsn5J_IGX9XXB_dXbce60B35XPPL9Aey3CVhPbHwuUpuf92IGwBnrCsWuxVGOdFj51z6Nhxo2bTQ_MllYWOsUjftn5zmTVMh4pRh_yiPLP2OszXbIk-U_7c0zEqxo4K3YUA-Zc0fpcqELcHC3E5F2e_mkOMkk6NlRUNn6qOmmhob_ZDyP1ExVtNthkczY4OqkyMKKerjm2jYvzSAhT7YYCMBFk_ulvAZ1Om5_plGamMqIBW-FMK1ViaQdf2yNRozJDhS_awPc-Oca6e-QU4hS_GTYYkUbQOYPcXlz3o4ZkLg5SAQRFUp-qe1IV-EpQ4xTeavtmIzasVhioFCnYvmtx64uhxB4KTQd28MkI-LzHRRq-Hxv4-wBU2pAwVichLXKHsqMi8SnNVPeptsN_su4sf59F0LdjjZgGo4cO_e11cuLFpKKvS_xETDY_geTYi0EDqoqxsHJjTcIw53SvLFucF8bMNnB-aobhjX5gHY_A1Qw3Qv4BuEqwsFBQsGkoaSfSlaDYzay49swBk8y0CYkJb6oNuumjSMecSRhtuinnKh3jpo84i7JBoNmGrYRS2kGP9oKoo5mWCwMO-1BPiP9x4rdsmTxh6-uZRdaKR75mFp5Si6sqSZFGB7xFbxnau383bkITVhsN78EwUrB0xuwi4sDP1zAVEMjKKNRprXk3OwRRaGTW_t_pc5fquK5VDGTC8jakKYpHvqFZvLIgWwf31i879jGTXkwOlLd-pQPPEjz1-aHnM-OC8TDUZxVWzvf-AUdIQZS60NBbBqnIG8sQmmlUBNqVXIhb5XF82XxHq5ubqdKWB00kq5aqOvByyTj1Tqu4Y_RJHiZTroYjY9vV82qXndHI_9_LzdK0YFy-OU7d-tdrZn4HhsnT5aEeEPU1plePvXa98k1z2g1xjvdrxUO0PPkWvJYXPCHW5bMi-yg7c09p95Zclfwmvy-_Y0mq2FTVjyyyc4WahFiEzF0NXmRXrGJpKmcfbeXlMvRJzAPmC8O3I3vbPhK_8t54Az1ni-wStcVM-TEqBbjljeThZxhdWi4DUXp2K2RIa2xpFcQUORd4ad9vl076cwwokDOK5z06WGaQB2R3MO97kJpflRkFVwkCNYv7RGXb4OkP3ee08zwF4bsvKxLrxHLsb6sOvON_93wf-UkyMPNCgfmQZTgtmovctkEcYQ0ywJ1WnPfx7rUfRh-86rDG_4VeHLxSD9bR4G2z82nGikCcDmYtPz2Xi2BjnthqWkcPE8cQUqFUx_SlBELouUM5VKmCl1-HoFH5QkLe9JgAY-fc8MLCUsiy-4QYnSjjBX9ceoJ4legtxlfdGmiaViLxxIlfUu3WAIaCpuhdc-pZrBc9e0ag-BsvwlgZVQMwC0vNafM4dZd9eH4jq2upWymWbBwGRbDl3QY1mkSEzwr_DwbbW8Wv4sjhXE07ZA3AkCOs-XOqIsbHI0R_Qw1BO7NkpVIttI2t_7rFA5DdbCOZEXf2ILkedgzKz9AJ35KIKqk1El-5PuM2FDxqPqJe68QzThIL-9MNGd2r72OICd74JPfqjxWuqiLGk2T6PvB5Yw2S5EecEa9CitnFiDEwV1imTmCFleRZhhibZdHVgFdzmiP_63wxd7HNb71TgGseszJefNANKdasFNgNiUbk4PLC3G-WTmFo-VMJpFTWNWaGcBnXPCI98fRoYQcueoVaVxl6A-6EriaauptZFsonVpC58RAIkUBqP00-Q_8R3fMJUs62VVSBn_iXR4Ua7IEqQgSrEuRvwoDsW2weQJQfSO0KKkNccafn-ADg8QI1N2C8qaQQzHenfpvxIhBz5uh15xLxYYgchvKP-Ghk2pFWWSn5WY1Zw3WNsweLo93uc2cdwZGDEJ4jJoOz44Mlcp41UOXTUJZsju7GUVeUxJnaTKIh5iRZtvi5hjn7wzDOKlhpDVtji_7s3L6lUEx0782vk2LM4igREby3NYdvkjhx28pan0Nt1bcgC9rbjETFV4sjDjg99rARkhRcVigRX9H3JeoY88KNcznz4-WCMqgum4unQX9GAUSAwG60Yk-0ldFgfP7Va5I1FUrH7MQEtBNZi9_4uwjpSwzneTKmXArv61AAZwInq66lSZ2OSRtCFUj12Zm1hwjNUF9cn6XdOIZj5pM04RS2grIg9btoxV8BKSFN8fdxpdk9LVdBA2fcN-are1hHmBDSl8wyyTPLg4QxokfXlRq5wv-_nAOdhF7yedTgIureE9t2NOwwkdhoZ9C_xWXboz37bbawBv7lHX-wgeA8eCx2TnNnAqz-no0IPsAC2P-OSL_XPU5LNixfe-hmG5h5h2aRN0y9PUXdcQbqgxjO7QaGnV7KT7hnNUUv24QyZBa7RMz-b0RegVcn42cW53K68O1cJk2hF8yPCpfSSVSp3NtOS2tEaj4POjvTBiQrJnjlfoVUnDBG1FO8KRHxsRV2Fwjg5Dq--bB3xaDBlxrp7X6v0nadilgPcbAJD11TgVxeAWoNtGyugyClKixXsu-ZDRt5wX7XvQtcHGY16wnfB42sil0O_h47NgcXYLCJYGEfUEjLJKaOSwn8jpeo6Rb3V4Qc-neaRNyfTYc4S1-TvrusndvIFv69hQ9bycwUyDiwtm8mbK9IvvWhYtaLmWU1wI2bBM0bNsbtueB-6FVSb8oSYSEBPSH6QRfFMdV2BiGjrp1oYUwFU-v34llCag7pqGta4P9V42Amtm5oTH6JwEAbzVapWGJE2p6lMQT4ccgfzQtdJMNnmZqeNHTawCiNOUbUZrOgmy0bme1XhzcCvoC-7YbAVykymxMIRF3rjHl796GUecpRXvizNBZb8xn7_2V3Uh5WMxao1q-mrT-3RpVAbwG7aeENlVM3lOsjltE3RvYi8nsa7M-Y0QbdgZzc_TFMPd5HaeLAqr13uVN75sWPfzazQlRla2E_rTIKbISjW656p3zs0QXs4mhBpU3XEAK0G9OGdv3BwUdZ1FwbHBO3qRrYqNfrkpWrSo1sK4KT6eScZnUsfZcRQw0TJEBngSjoCB17oHI6tU4u7Q5_JCnut8lOCPvnCgW7NpLl8X8aX-O-JBPOWzQVsON7XRvC9OQGFfCOsb_ZNzKmkvMTkTJ7uoKTBQrYbwHj6Vc--lnXd5OlqQFmkAjQD3sV_mFRrYMka-7O3cWHzfbSyX5B2SX2883Qwv5N1_9ElPFoRPytQm6QqVKbSiE5kI1i5xAPMSrHJ7CdgE5V_K4-QYFbDhwzbmlMew7faMyAPigS3LUPfCy3lDOTJFChy73bWTi4SJrb3AzPNUtl'}, {'type': 'text', 'text': 'Fixed duration parsing for all documented formats, corrected billable-block rounding, and made `add_slot` return a new list without shared state. Added regression tests and an Unreleased changelog entry.\\n\\nTests: **13 passed** with pytest plugin autoload disabled.', 'annotations': [], 'id': 'msg_01cd2f6736bde701006ac486ddf09c87d0b85f1662ad98821e', 'phase': 'final_answer'}]",
+  "score": 0.7272727272727273,
+  "passed": 8,
+  "total": 11,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "parse_duration_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "billable_blocks_round_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "add_slot_no_shared_state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "negative_minutes_rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_changelog",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_version_bump",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}
